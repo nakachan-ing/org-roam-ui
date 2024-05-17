@@ -1,0 +1,62 @@
+:PROPERTIES:
+:ID:       0399E747-98C9-481F-AC24-D7CB177CB123
+:END:
+#+title: EC2にDockerをインストールして起動する
+#+filetags: :@Docker:
+
+
+*1. Dockerをインストールする*
+
+#+BEGIN_SRC sh
+sudo su -
+yum install -y docker
+#+END_SRC
+
+![](img/img/2024-04-11 16.47.10-docker-install_1.png)
+![](img/img/2024-04-11 16.47.36-docker-install_2.png)
+![](img/img/2024-04-11 16.47.52-docker-install_3.png)
+
+*2. dockerを起動する*
+#+BEGIN_SRC sh
+which docker
+systemctl status docker
+systemctl start docker
+systemctl status docker
+docker info
+#+END_SRC
+
+![](img/img/2024-04-11 16.49.43-docker-status-change.png)
+![](img/img/2024-04-11 16.52.24-docker-info_1.png)
+![](img/img/2024-04-11 16.52.39-docker-info_2.png)
+
+*3. docker-composeをインストールする*
+#+BEGIN_SRC sh
+  echo $HOME
+  pwd
+  ls -la
+
+  DOCKER_CONFIG=${DOCKER_CONFIG:-$HOME/.docker}
+  mkdir -p $DOCKER_CONFIG/cli-plugins
+  ls -la
+  ls -la .docker
+#+END_SRC
+
+![](img/img/2024-04-11 16.57.51-docker-compose-install_1.png)
+
+#+BEGIN_SRC sh
+  curl -SL https://github.com/docker/compose/releases/download/v2.4.1/docker-compose-linux-x86_64 -o $DOCKER_CONFIG/cli-plugins/docker-compose
+
+  ls -la .docker/cli-plugins
+  chmod +x $DOCKER_CONFIG/cli-plugins/docker-compose
+  ls -la .docker/cli-plugins
+
+  docker compose version
+#+END_SRC
+
+![](img/img/2024-04-11 16.59.22-docker-compose-install_2.png)
+![](img/img/2024-04-11 17.01.02-docker-compose-chmod.png)
+![](img/img/2024-04-11 17.01.47-docker-compose-version.png)
+
+
+*【参照】*
+- [[https://matsuand.github.io/docs.docker.jp.onthefly/compose/install/][Docker Compose のインストール | Docker ドキュメント]]

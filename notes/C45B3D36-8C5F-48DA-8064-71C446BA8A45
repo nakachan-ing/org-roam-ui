@@ -1,0 +1,30 @@
+:PROPERTIES:
+:ID:       C45B3D36-8C5F-48DA-8064-71C446BA8A45
+:ROAM_ALIASES: "Network Attached Storage"
+:END:
+#+title: NAS
+#+filetags: :@ストレージ:
+
+#+BEGIN_QUOTE
+NASとは「Network Attached Storage」の頭文字を組み合わせたもので、日本語に訳すと「ネットワーク接続型ストレージ」です。
+
+名前が示す通り、NASとはストレージ（補助記憶装置）です。すぐに思い浮かぶストレージとしてはPCとUSBケーブルなどで接続する外付けハードディスクがありますが、NASはネットワークを経由して接続する点が異なります。(¶1§1)
+#+END_QUOTE
+
+*特徴*
+- ファイルのバックアップと共有を目的に使用することが多い
+- ネットワーク内の異なるユーザがアクセスし、データのバックアップや共有が可能
+
+
+*メリット*
+- [[id:80BA652A-5EE7-4887-8A89-85A4A530AA51][ファイルサーバ]]に比べて手軽に導入できる
+- 人的リソースを抑えられる
+- 導入コストを抑えられる
+
+*デメリット*
+- 拡張性に限界がある
+- セキュリティレベルに限界がある
+
+
+*【参照】*
+- [[https://www.tsukaeru.net/blog-detail/difference-between-nas-and-file-server-ja?gad_source=1&gclid=Cj0KCQjwk6SwBhDPARIsAJ59GwfRDfAbrvJfbfgfhhAgChcVSkFnLhYSN8qJo0GbQ5Fnn0zt3EFJB9oaAhN2EALw_wcB][NASとファイルサーバの違いは？使い方の違いやメリットデメリット・選ぶ基準を解説]]

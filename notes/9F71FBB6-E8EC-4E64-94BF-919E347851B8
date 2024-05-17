@@ -1,0 +1,11 @@
+:PROPERTIES:
+:ID:       9F71FBB6-E8EC-4E64-94BF-919E347851B8
+:ROAM_ALIASES: メンバーアカウントの使用コストの確認
+:END:
+#+title: AWS-Organizationsの各OUが所有するアカウントの使用コストを確認できるようにする方法
+#+filetags: :@QuickSight:@S3:@Organizations:@AWS:
+
+
+- AWS Organizationsの管理アカウントで"AWS Cost and Usage Report(CUR)"を作成する
+- 作成したCURをS3に保存する
+- Amazon QuickSightのダッシュボードから可視化することが可能

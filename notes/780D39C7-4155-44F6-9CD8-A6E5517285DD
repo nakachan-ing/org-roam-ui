@@ -1,0 +1,52 @@
+:PROPERTIES:
+:ID:       780D39C7-4155-44F6-9CD8-A6E5517285DD
+:END:
+#+title: L2スイッチの設定を解除したいときのコマンド
+#+filetags: :@L2SW:
+
+
+- 設定を解除したい場合は、先頭に ~no~ をつけてコマンドを実行する
+- 基本的に設定した順番と逆の順番に解除コマンドを実行する
+  *※コマンドは特権モードで実行する*
+- 解除コマンドを実行するときもinterfaceを指定する
+
+
+#+BEGIN_SRC
+# ユーザの削除
+no username <name>
+show users accounts
+
+# ssh接続の無効化
+no ip ssh server
+show ip ssh
+
+# デフォルトゲートウェイの削除
+no ip default-gateway
+show ip route
+
+# IPアドレスの削除
+interface vlan XX
+no ip address
+show ip vlan
+
+# トランクモードで割り当てたVLAN解除（削除ではない）
+interface range gi1/0/X-X,gi2/0/X-X / po1
+no switchport trunk allowed vlan
+
+# トランクモードの解除
+no switchport mode / switchport mode access
+
+# チャネルグループの削除
+interface range gi1/0/X-X,gi2/0/X-X
+no channel-group
+show interface po1
+
+# VLANの削除
+no vlan XX-XX
+show vlan
+
+# hostnameの削除
+no hostname
+#+END_SRC
+
+L2スイッチの設定方法は[[id:7FFC9D2F-EC32-4170-BE10-B1CEEEE87EBB][L2スイッチの初期設定]]を参照

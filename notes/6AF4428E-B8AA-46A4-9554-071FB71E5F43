@@ -1,0 +1,25 @@
+:PROPERTIES:
+:ID:       6AF4428E-B8AA-46A4-9554-071FB71E5F43
+:END:
+#+title: AWS-Organizations
+#+filetags: :@Organizations:@AWS:
+
+
+#+BEGIN_QUOTE
+AWS Organizations は、ユーザーが作成して一元管理する組織に、複数の AWS アカウント を統合するためのアカウント管理サービスです。AWS Organizations には、お客様のビジネスの予算、セキュリティ、コンプライアンスのニーズをより適切に満たすアカウント管理および一括請求 (コンソリデーティッドビリング) 機能が備わっています。組織の管理者は、組織内にアカウントを作成したり、既存のアカウントを組織に招待して参加させることができます。(¶1)
+#+END_QUOTE
+
+- AWS Organizationsは以下の機能を持っている
+  + 全てのAWSアカウントを一元管理
+  + 全てのメンバーアカウントの一括請求
+  + OU(Organization Unit)にアクセスポリシーのアタッチ(グループのようなもの)
+  + SCP(サービスコントロールポリシー)でメンバーアカウントのアクセス許可
+  + [[id:9F71FBB6-E8EC-4E64-94BF-919E347851B8][メンバーアカウントの使用コストの確認]]が可能
+- AWS Organizationsを利用する際に、以下項目のベストプラクティスを考慮する
+  + [[id:BE45FFD7-4455-4567-9032-ECC37CC72E8C][マルチアカウント管理のベストプラクティス]]
+  + [[id:1EDA9057-027E-42A1-AE0E-0793D471D730][管理アカウントのベストプラクティス]]
+  + [[id:35E04B63-BBC1-463E-AB2A-E331B9E4B550][メンバーアカウントのベストプラクティス]]
+
+
+*【参照】*
+- [[https://docs.aws.amazon.com/ja_jp/organizations/latest/userguide/orgs_introduction.html][AWS Organizations の概要 - AWS Organizations]]

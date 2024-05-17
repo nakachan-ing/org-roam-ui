@@ -1,0 +1,41 @@
+:PROPERTIES:
+:ID:       72ABE86C-3523-413C-AD8C-1A559D965799
+:END:
+#+title: rsyslogを使えるように設定する
+
+
+- /var/logの配下にmessagesがない場合は、「rsyslog」がインストールされていない
+- 以下の手順でインストールする必要がある
+
+*1. /var/log配下の確認をする*
+#+BEGIN_SRC sh
+ls -l /var/log
+#+END_SRC
+
+![](img/img/2024-04-10 5.37.39-before-install-rsyslog.png)
+
+*2. rsyslogをインストールする*
+#+BEGIN_SRC sh
+yum install rsyslog
+#+END_SRC
+
+![](img/img/2024-04-10 5.38.05-install-rsyslog_1.png)
+![](img/img/2024-04-10 5.38.28-install-rsyslog_2.png)
+![](img/img/2024-04-10 5.38.41-install-rsyslog_3.png)
+
+*3. rsyslogを起動する*
+#+BEGIN_SRC sh
+systemctl status rsyslog.service
+systemctl start rsyslog.service
+systemctl status rsyslog.service
+#+END_SRC
+
+![](img/img/2024-04-10 5.39.50-rsyslog-status-changed.png)
+
+*4. 再度/var/log配下を確認する*
+#+BEGIN_SRC sh
+ls -l /var/log
+#+END_SRC
+
+![](img/img/2024-04-10 5.40.30-after-install-rsyslog.png)
+

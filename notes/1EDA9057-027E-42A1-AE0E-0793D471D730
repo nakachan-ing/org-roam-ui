@@ -1,0 +1,20 @@
+:PROPERTIES:
+:ID:       1EDA9057-027E-42A1-AE0E-0793D471D730
+:END:
+#+title: 管理アカウントのベストプラクティス
+#+filetags: :@Organizations:@AWS:
+
+
+[[id:6AF4428E-B8AA-46A4-9554-071FB71E5F43][AWS-Organizations]]における管理アカウントのベストプラクティスを以下抜粋する
+
+(一部抜粋)
+- 管理アカウントにアクセスできるユーザを制限する
+- 誰がアクセスできるかを確認、追跡する運用を立てる
+- 管理アカウントは常用せず、管理アカウントでの実行が必要な場合にのみ使用する(SCPが適用されないため)
+- 管理アカウントにワークロードをデプロイすることを避ける(SCPが適用されないため)
+- 管理アカウント外に責任を委任する
+
+
+*【参照】*
+- [[https://docs.aws.amazon.com/ja_jp/organizations/latest/userguide/orgs_best-practices_mgmt-acct.html][管理アカウントのベストプラクティス - AWS Organizations]]
+

@@ -1,0 +1,31 @@
+:PROPERTIES:
+:ID:       B436B28F-AC25-4868-AB10-49344827E674
+:END:
+#+title: ローカルプロジェクトをGitHubのリモートレポジトリに登録する方法
+#+filetags: :@git:
+
+*§ 方法1：既存のローカルプロジェクトを GitHub のリモートレポジトリに登録する*
+
+#+BEGIN_SRC
+git remote add origin <repo_URL>
+git branch -M main
+git push -u origin main
+#+END_SRC
+
+*§ 方法2：ローカルに新規でプロジェクトを作成して GitHub のリモートレポジトリに登録する*
+
+#+BEGIN_SRC
+git init
+git add .
+git commit -m "first commit"
+git branch -M main
+git remote add origin <repo_URL>
+git push -u origin main
+#+END_SRC
+
+*上記コマンドは、GitHub上でレポジトリを新規作成したときにナビゲーションされる*
+
+
+*【参照】*
+- [[https:www.atlassian.com/ja/git/tutorials/setting-up-a-repository][Git リポジトリの作成方法 | Atlassian Git Tutorial]]
+

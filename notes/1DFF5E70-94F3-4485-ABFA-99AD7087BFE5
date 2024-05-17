@@ -1,0 +1,338 @@
+:PROPERTIES:
+:ID:       1DFF5E70-94F3-4485-ABFA-99AD7087BFE5
+:ROAM_ALIASES: init.el
+:END:
+#+title: 必要最小限のEmacsの設定
+#+filetags: :@Emacs:
+
+*~/.emacs.d/init.el*
+
+#+BEGIN_SRC emacs-lisp
+
+    ;; 必要最低限のEmacsの設定
+    (global-font-lock-mode t)
+    (setq font-lock-maximum-decoration t)
+    (setq fast-lock nil)
+    (setq lazy-lock nil)
+    (setq jit-lock t)
+
+
+    ;;===========================================================================================================
+    ;; 行番号の表示
+    (if (version<= "26.0.50" emacs-version)
+        (progn
+          (global-display-line-numbers-mode)
+          ;; テーマはdeeper-blueを使用している。これに合わせた色を選んだつもり
+          (set-face-attribute 'line-number nil
+                              :foreground "DarkOliveGreen"
+                              :background "#131521")
+          (set-face-attribute 'line-number-current-line nil
+                              :foreground "gold")))
+
+
+    ;;===========================================================================================================
+    ;; 背景色の変更
+    (if window-system
+        (progn
+          (set-face-background 'default "#123a33") ;; 標準の背景色
+          (set-face-foreground 'default "#ffffff")   ;; 標準の文字色
+          (set-face-background 'mode-line "#557777")   ;; モードライン背景
+          (set-face-foreground 'mode-line "#dddddd")   ;; モードライン
+          (set-face-background 'mode-line-inactive "#556060") ;; モードライン背景
+          (set-face-foreground 'mode-line-inactive "#aaaaaa") ;; モードライン2
+          (set-face-background 'scroll-bar "#d6dabf")  ;; スクロールバー
+          (set-face-foreground 'scroll-bar "#c6caaf")  ;; スクロールバー
+          (set-face-background 'tooltip "ghostwhite")  ;; ツールチップ背景
+          (set-face-foreground 'tooltip "black")       ;; ツールチップ
+          (set-face-background 'tool-bar "#d6dabf")    ;; ツールバー
+          (set-face-background 'menu "#d6dabf")        ;; メニュー
+          (set-face-background 'fringe "#d0d4bf")      ;; fringe
+          (set-face-foreground 'fringe "#90947f")      ;; fringe
+          (set-cursor-color "#dddddd")
+          )
+      (progn
+        (set-face-background 'default "#000000")
+        (set-face-foreground 'default "#ffffff")
+        )
+      )
+
+
+    ;;===========================================================================================================
+    ;; パッケージ管理(MELPA)
+      (when (require 'package nil t)
+     (add-to-list 'package-archives
+           '("melpa" . "https://melpa.org/packages/"))
+     (add-to-list 'package-archives
+           '("melpa-stable" . "https://stable.melpa.org/packages/"))
+     (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
+     (package-initialize)
+     )
+
+
+    ;;===========================================================================================================
+     ;; 日本語環境の設定
+    (set-language-environment "Japanese")
+    (prefer-coding-system 'utf-8)
+    (set-default 'buffer-file-coding-system 'utf-8)
+
+
+    ;;===========================================================================================================
+    ;; GNU/Linuxにおけるフォントの設定（IncosolataとIPA exGothic）
+    (when (eq system-type 'gnu/linux)
+      (set-frame-font "Inconsolata-14")
+      (set-fontset-font t 'japanese-jisx0208 (font-spec :family "IPAExGothic"))
+      )
+
+
+    ;;===========================================================================================================
+    ;; Org modeの設定
+
+    ;; ファイルの場所
+    ;;(setq org-directory "~/Org")
+    (setq org-directory "~/Documents/Org")
+    (setq org-default-notes-file "Inbox.org")
+
+
+    ;;===========================================================================================================
+    ;; Org-captureの設定
+
+    ;; Org-captureを呼び出すキーシーケンス
+    (define-key global-map "\C-cc" 'org-capture)
+    ;; Org-captureのテンプレート（メニュー）の設定
+     (setq org-capture-templates
+          '(("f" "fleeting" entry (file+headline "~/Documents/Org/org-roam/fleeting.org" "Fleeting Notes")
+             "* %?\nEntered on %U\n %i\n %a")
+           ("i" "inbox" entry (file+headline "~/org-GTD/GTD.org" "【Inbox】")
+             "* TODO %?\n %i\n %a")
+            ))
+
+    ;; メモをC-M-^一発で見るための設定
+    (defun show-fleeting-org-buffer (file)
+      "Show an org-file FILE on the current buffer."
+      (interactive)
+      (if (get-buffer file)
+          (let ((buffer (get-buffer file)))
+            (switch-to-buffer buffer)
+            (message "%s" file))
+        (find-file (concat "~/Documents/Org/org-roam/" file))))
+    (global-set-key (kbd "C-M-^ f") '(lambda () (interactive)
+                                     (show-fleeting-org-buffer "fleeting.org")))
+
+
+    (defun show-inbox-org-buffer (file)
+      "Show an org-file FILE on the current buffer."
+      (interactive)
+      (if (get-buffer file)
+          (let ((buffer (get-buffer file)))
+            (switch-to-buffer buffer)
+            (message "%s" file))
+        (find-file (concat "~/Documents/Org/" file))))
+    (global-set-key (kbd "C-M-^ i") '(lambda () (interactive)
+                                     (show-inbox-org-buffer "inbox.org")))
+
+
+    ;;===========================================================================================================
+    ;; GTDのための設定                                 
+
+    (setq org-startup-truncated nil)
+
+    ;;(setq org-agenda-files '("~/Documents/Org"))
+    (setq org-agenda-files '("~/org-GTD"))
+    (setq org-refile-targets '((org-agenda-files :maxlevel . 3)))
+
+
+    (setq org-todo-keywords
+      '((sequence "TODO(t)" "TODAY(d)" "WEEK(w)" "IN PROGRESS(p)" "WAITING(@w)" "|" "DONE(@d)")))
+    (setq org-log-done 'time)
+
+    (setq org-agendafiles '("~/org-GTD/GTD.org"))
+    ;;(setq org-agenda-files '("~/Documents/Org"))
+    ;;(setq org-agenda-files '("~//Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org")
+    (global-set-key (kbd "C-c a") 'org-agenda)
+
+
+    ;;===========================================================================================================
+    ;; Evilモードの設定(vimキーバインド)
+    (custom-set-variables
+     ;; custom-set-variables was added by Custom.
+     ;; If you edit it by hand, you could mess it up, so be careful.
+     ;; Your init file should contain only one such instance.
+     ;; If there is more than one, they won't work right.
+     '(package-selected-packages
+       '(org-roam-ui org-roam markdown-preview-mode ## markdown-mode evil-tutor evil-collection evil)))
+    (custom-set-faces
+     ;; custom-set-faces was added by Custom.
+     ;; If you edit it by hand, you could mess it up, so be careful.
+     ;; Your init file should contain only one such instance.
+     ;; If there is more than one, they won't work right.
+     )
+    (use-package evil
+      :ensure t
+      :init
+      (setq evil-want-keybinding nil)
+      :config
+      (evil-mode 1))
+
+    (use-package evil-collection
+      :after evil
+      :ensure t
+      :config
+      (setq evil-collection-mode-list '(dashboard dired ibuffer))
+      (evil-collection-init))
+
+    (use-package evil-tutor)
+
+
+    ;;===========================================================================================================
+    ;; markdownプレビューの設定
+    (use-package markdown-mode
+      :ensure t
+      :mode ("README\\.md\\'" . gfm-mode)
+      :init (setq markdown-command "multimarkdown")
+      :bind (:map markdown-mode-map
+             ("C-c C-e" . markdown-do)))
+
+    (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+    (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+    (add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
+
+    (setq markdown-preview-stylesheets 
+          (list "https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/3.0.1/github-markdown.min.css"))
+
+
+    ;;===========================================================================================================
+    ;; org-roamの設定
+    (setq org-roam-v2-ack t)
+    (setq org-roam-db-location "~/.emacs.d/org-roam.db")
+    (setq org-roam-directory "~/Documents/Org/org-roam/")
+    (setq org-roam-graph-executable "/usr_local/bin/dot")
+    (global-set-key (kbd "C-c n l") 'org-roam-buffer-toggle)
+    (global-set-key (kbd "C-c n f") 'org-roam-node-find)
+    (global-set-key (kbd "C-c n g") 'org-roam-graph)
+    (global-set-key (kbd "C-c n i") 'org-roam-node-insert)
+    (global-set-key (kbd "C-c n a") 'org-roam-alias-add)
+    (global-set-key (kbd "C-c n t") 'org-roam-tag-add)
+    (global-set-key (kbd "C-c n rt")'org-roam-tag-remove)
+    (require 'org-roam)
+    (org-roam-setup)
+    (org-roam-db-autosync-mode)
+
+    ;; 自動保存されるバックアップファイルの置き場所を ~/.emacs.d/backup に変更する
+    (setq backup-directory-alist 
+      (cons (cons ".*" (expand-file-name "~/.emacs.d/backup")) 
+            backup-directory-alist)) 
+    (setq auto-save-file-name-transforms 
+          `((".*", (expand-file-name "~/.emacs.d/backup/") t))) 
+
+
+    ;;===========================================================================================================
+    ;; org-roam-uiの設定
+    (use-package org-roam-ui
+        :after org-roam 
+        :config
+        (setq org-roam-ui-sync-theme t
+              org-roam-ui-follow t
+              org-roam-ui-update-on-save t
+              org-roam-ui-open-on-start t))
+  ;;===========================================================================================================
+  ;; 見出しの設定
+  (eval-when-compile (require 'cl))
+
+  (defgroup org-bullets nil
+    "Display bullets as UTF-8 characters"
+    :group 'org-appearance)
+
+  ;; A nice collection of unicode bullets:
+  ;; http://nadeausoftware.com/articles/2007/11/latency_friendly_customized_bullets_using_unicode_characters
+  (defcustom org-bullets-bullet-list
+    '(;;; Large
+      "◉"
+      "○"
+      "✸"
+      "✿"
+      ;; ♥ ● ◇ ✚ ✜ ☯ ◆ ♠ ♣ ♦ ☢ ❀ ◆ ◖ ▶
+      ;;; Small
+      ;; ► • ★ ▸
+      )
+    "This variable contains the list of bullets.
+  It can contain any number of symbols, which will be repeated."
+    :group 'org-bullets
+    :type '(repeat (string :tag "Bullet character")))
+
+  (defcustom org-bullets-face-name nil
+    "This variable allows the org-mode bullets face to be
+   overridden. If set to a name of a face, that face will be
+   used. Otherwise the face of the heading level will be used."
+    :group 'org-bullets
+    :type 'symbol)
+
+  (defvar org-bullets-bullet-map
+    '(keymap
+      (mouse-1 . org-cycle)
+      (mouse-2
+       . (lambda (e)
+           (interactive "e")
+           (mouse-set-point e)
+           (org-cycle))))
+    "Mouse events for bullets.
+  Should this be undesirable, one can remove them with
+
+  \(setcdr org-bullets-bullet-map nil\)")
+
+  (defun org-bullets-level-char (level)
+    (string-to-char
+     (nth (mod (1- level)
+               (length org-bullets-bullet-list))
+          org-bullets-bullet-list)))
+
+  ;;;###autoload
+  (define-minor-mode org-bullets-mode
+      "UTF8 Bullets for org-mode"
+    nil nil nil
+    (let* (( keyword
+             `(("^\\*+ "
+                (0 (let* (( level (- (match-end 0) (match-beginning 0) 1))
+                          ( is-inline-task
+                            (and (boundp 'org-inlinetask-min-level)
+                                 (>= level org-inlinetask-min-level))))
+                     (compose-region (- (match-end 0) 2)
+                                     (- (match-end 0) 1)
+                                     (org-bullets-level-char level))
+                     (when is-inline-task
+                       (compose-region (- (match-end 0) 3)
+                                       (- (match-end 0) 2)
+                                       (org-bullets-level-char level)))
+                     (when (facep org-bullets-face-name)
+                       (put-text-property (- (match-end 0)
+                                             (if is-inline-task 3 2))
+                                          (- (match-end 0) 1)
+                                          'face
+                                          org-bullets-face-name))
+                     (put-text-property (match-beginning 0)
+                                        (- (match-end 0) 2)
+                                        'face (list :foreground
+                                                    (face-attribute
+                                                     'default :background)))
+                     (put-text-property (match-beginning 0)
+                                        (match-end 0)
+                                        'keymap
+                                        org-bullets-bullet-map)
+                     nil))))))
+      (if org-bullets-mode
+          (progn
+            (font-lock-add-keywords nil keyword)
+            (font-lock-fontify-buffer))
+        (save-excursion
+          (goto-char (point-min))
+          (font-lock-remove-keywords nil keyword)
+          (while (re-search-forward "^\\*+ " nil t)
+            (decompose-region (match-beginning 0) (match-end 0)))
+          (font-lock-fontify-buffer))
+        )))
+
+  (provide 'org-bullets)
+
+  (require 'org-bullets)
+  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+#+END_SRC
+

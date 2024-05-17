@@ -1,0 +1,32 @@
+:PROPERTIES:
+:ID:       47EE96E3-DB1B-4B6B-A3CF-1EF727E0F98F
+:ROAM_ALIASES: L2スイッチの設定リセット
+:END:
+#+title: startup-configを削除するときのコマンド
+#+filetags: :@L2SW:@ネットワーク:
+
+
+*[[id:751DBCAF-0A5C-4D76-8AC8-DF5471D6D3F5][enableコマンド]]で特権モードにしてから以下コマンド実行*
+
+~# erase startup-config~
+（実体ファイルまで削除して初期化するコマンド）
+
+![](img/img/2024-04-02 4.12.30-erase-command.png)
+![](img/img/2024-04-02 4.25.55-erase-startup-config.png)
+
+~# delete startup-config~
+（実体ファイルまでは削除できない）
+
+
+- *startup-configを削除するというよりも、中身をまっさらするのがdelete*
+- *startup-config自体を削除してしまうのがerase*
+
+
+startup-configの扱いについては[[id:C881B5A2-7275-4ADC-9378-77F6518ED1CA][L2スイッチのconfigファイルの扱い]]を参照
+
+
+
+*【参照】*
+- [[https://www.allied-telesis.co.jp/support/list/switch/sb_x8100/rel/5.4.4-0.4/001735k/docs/erase_startup-config@020ENABLEEXEC.html][SwitchBlade x8100シリーズ コマンドリファレンス 5.4.4: erase startup-config]]
+- [[https://www.allied-telesis.co.jp/support/list/switch/sb_x8100/rel/5.4.4-0.4/001735k/docs/delete@020ENABLEEXEC.html][SwitchBlade x8100シリーズ コマンドリファレンス 5.4.4: delete]]
+- [[https://www.cisco.com/c/ja_jp/td/docs/cian/ios/ios15-1s/cg/019/cf-15-1s/cf-setup.html][Cisco IOS Configuration Fundamentals  コンフィギュレーション ガイド - セットアップ モードを使用したシスコ ネット ワーキング デバイスの設定 (Cisco IOS 15.1S) - Cisco]]

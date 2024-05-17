@@ -1,0 +1,15 @@
+:PROPERTIES:
+:ID:       E0774504-9C5F-40A3-AE05-4A776047D700
+:END:
+#+title: SCSI
+
+#+BEGIN_QUOTE
+SCSIとは、Small Computer System Interface（スモールコンピュータシステムインタフェース）の略で、コンピュータ本体にハードディスクやCD-ROM、イメージスキャナなど、様々な周辺機器の接続に使われていたインタフェースの規格のことです。(¶1)
+#+END_QUOTE
+
+
+[[img/2024-04-04_05-00-25_scsi1.png]]
+
+
+*【参照】*
+- [[https://medium-company.com/scsi/][SCSI（スカジー）とは - ITを分かりやすく解説]]

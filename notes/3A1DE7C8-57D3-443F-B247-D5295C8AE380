@@ -1,0 +1,20 @@
+:PROPERTIES:
+:ID:       3A1DE7C8-57D3-443F-B247-D5295C8AE380
+:END:
+#+title: リモートの最新情報をローカルに反映するにはgit-pullを使う
+#+filetags: :@git:
+
+*§ pullコマンド*
+
+fetch と merge を一括で実行できる
+
+#+BEGIN_SRC bash
+  git pull <リモートレポジトリ名称> <ブランチ名>
+  git pull origin main
+#+END_SRC
+
+~git pull~ *する前には必ずローカルのブランチを適切なものに変更すること*
+
+
+*【参照】*
+- [[https:forest-valley17.hatenablog.com/entry/2018/12/06/223807][Git - リモートの最新情報をローカルに反映する(fetch と pull)]]

@@ -1,0 +1,16 @@
+:PROPERTIES:
+:ID:       5A1362B4-4599-4B1F-A93F-A6C873DDA173
+:END:
+#+title: ESXi
+#+filetags: :@仮想化:
+
+
+#+BEGIN_QUOTE
+仮想化製品パッケージ「VMware vSphere」を構成する中核的な製品で、データセンターにおける仮想サーバの構築・運用などでよく用いられる。(¶1)
+#+END_QUOTE
+
+- VMware vSphereのコンポーネントのうち、最も重要であるハイパーバイザー型の仮想化ソフトウェア
+- [[id:74D71B24-41BB-4539-8349-38CACF6266D4][ベアメタル型ハイパーバイザー]](完全仮想化された環境を提供)
+
+*【参照】*
+- [[https://e-words.jp/w/VMware_ESXi.html][VMware ESXi（vSphere Hypervisor）とは - 意味をわかりやすく - IT用語辞典 e-Words]]

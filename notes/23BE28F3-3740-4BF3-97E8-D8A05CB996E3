@@ -1,0 +1,14 @@
+:PROPERTIES:
+:ID:       23BE28F3-3740-4BF3-97E8-D8A05CB996E3
+:END:
+#+title: 最小権限の原則
+#+filetags: :@AWS:@IAM:
+
+- IAMポリシーにはタスクの実行に必要なアクセス許可だけを付与する
+- 特定の条件下で特定のリソースに対して実行できるアクションを定義(最小特権アクセス許可)
+- IAM Access Analyzerを使用して、ポリシーを生成することが可能
+- AWS管理ポリシーを利用して、大まかなアクセス許可を付与することができる
+- AWS管理ポリシーは必ずしも、最小権限というわけではないため、必要に応じてカスタマー管理ポリシーを定義して、さらに権限を狭めていく
+
+*【参照】*
+- [[https://docs.aws.amazon.com/ja_jp/IAM/latest/UserGuide/best-practices.html][IAM でのセキュリティのベストプラクティス - AWS Identity and Access Management]]

@@ -1,0 +1,19 @@
+:PROPERTIES:
+:ID:       84DAA4CD-F1E2-43FC-8B29-CFB922B783F2
+:ROAM_ALIASES: ストライピング
+:END:
+#+title: RAID-0
+
+*RAID 0（ストライピング）*
+- 複数台のハードディスクを保存領域として扱う
+- データ保存時に分散して書き込むため高速性に優れる
+- 一台でも故障すると復旧、アクセスできなくなる
+
+![](img/img/2024-04-09_03-54-32_raid0-structure.png)
+
+
+![](img/img/2024-04-09_03-56-45_raid0-demerit.png)
+
+
+*【参照】*
+- [[https://office110.jp/security/knowledge/technology/redundant-arrays-of-inexpensive-disks][RAIDとは？種類別の特徴を【図解】や【比較表】でわかりやすく解説【お役立ち情報】 | OFFICE110]]

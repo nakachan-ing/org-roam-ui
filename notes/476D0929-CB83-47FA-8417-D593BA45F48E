@@ -1,0 +1,25 @@
+:PROPERTIES:
+:ID:       476D0929-CB83-47FA-8417-D593BA45F48E
+:END:
+#+title: 物理パーティショニング
+#+filetags: :@サーバ:@仮想化:
+
+
+#+BEGIN_QUOTE
+物理サーバ上に区画を作り、物理的に分離する方式です。(¶2§1)
+#+END_QUOTE
+
+*メリット*
+- 一つ一つの独立性が高いため、別のパーティションで発生したハードウェア障害や負荷を受けにくい
+
+*デメリット*
+- 必要に応じて後からパーティションの変更などの柔軟性に欠ける
+
+
+![](img/2024-03-27_03-27-03_パーティショニング_0729-1024x689.png)
+
+
+
+*【参照】*
+- [[https://it-trend.jp/server-virtualization/article/technology_trend][サーバ仮想化方式の3つの方式とは？メリットなどを紹介｜ITトレンド]]
+- [[https://www.seraku.co.jp/columns/glossary/partitioningmethod/][パーティショニング方式 – セラクコラム]]

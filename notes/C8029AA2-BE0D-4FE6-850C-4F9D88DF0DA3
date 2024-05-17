@@ -1,0 +1,71 @@
+:PROPERTIES:
+:ID:       C8029AA2-BE0D-4FE6-850C-4F9D88DF0DA3
+:END:
+#+title: VLANを追加&削除するコマンド
+#+filetags: :@L2SW:
+
+*VLANを追加したいとき add*
+#+BEGIN_SRC
+switchport trunk allowed vlan add 1005-1006
+
+show vlan
+VLAN   Name                             Ports          Type
+-----  ---------------                  -------------  --------------
+1      default                          Po3-128,       Default
+                                        Gi1/0/5-18,
+                                        Gi1/0/21-23,
+                                        Te1/0/1-2,
+                                        Gi2/0/5-13,
+                                        Gi2/0/16,
+                                        Gi2/0/18,
+                                        Gi2/0/21-23,
+                                        Te2/0/1-2
+31     VLAN0031                         Po1,Gi1/0/1-2, Static
+                                        Gi2/0/1-2
+32     VLAN0032                         Po1            Static
+33     VLAN0033                         Po1            Static
+34     VLAN0034                         Po1            Static
+35     VLAN0035                         Po1            Static
+502    VLAN0502                         Po2,Gi1/0/3-4, Static
+                                        Gi2/0/3-4
+1005   VLAN1005                         Gi2/0/14-15,   Static
+                                        Gi2/0/17
+1006   VLAN1006                         Gi2/0/14-15,   Static
+                                        Gi2/0/17
+1007   VLAN1007                         Gi2/0/14-15,   Static
+                                        Gi2/0/17
+1008   VLAN1008                         Gi2/0/14-15,   Static
+                                        Gi2/0/17
+#+END_SRC
+
+*VLANを部分的に割り当て解除したいとき remove*
+#+BEGIN_SRC
+switchport trunk allowed vlan remove  1005-1006
+
+show vlan
+VLAN   Name                             Ports          Type
+-----  ---------------                  -------------  --------------
+1      default                          Po3-128,       Default
+                                        Gi1/0/5-18,
+                                        Gi1/0/21-23,
+                                        Te1/0/1-2,
+                                        Gi2/0/5-13,
+                                        Gi2/0/16,
+                                        Gi2/0/18,
+                                        Gi2/0/21-23,
+                                        Te2/0/1-2
+31     VLAN0031                         Po1,Gi1/0/1-2, Static
+                                        Gi2/0/1-2
+32     VLAN0032                         Po1            Static
+33     VLAN0033                         Po1            Static
+34     VLAN0034                         Po1            Static
+35     VLAN0035                         Po1            Static
+502    VLAN0502                         Po2,Gi1/0/3-4, Static
+                                        Gi2/0/3-4
+1005   VLAN1005                                        Static
+1006   VLAN1006                                        Static
+1007   VLAN1007                         Gi2/0/14-15,   Static
+                                        Gi2/0/17
+1008   VLAN1008                         Gi2/0/14-15,   Static
+                                        Gi2/0/17
+#+END_SRC

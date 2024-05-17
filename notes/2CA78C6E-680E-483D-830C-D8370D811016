@@ -1,0 +1,24 @@
+:PROPERTIES:
+:ID:       2CA78C6E-680E-483D-830C-D8370D811016
+:ROAM_ALIASES: MTU
+:END:
+#+title: パケット
+
+
+#+BEGIN_QUOTE
+インターネットなどTCP／IPネットワークで通信を行う際、データはIP（Internet Protocol）によって分割されます。この分割されたデータのことをパケットと呼びます。(¶1)
+#+END_QUOTE
+
+- ルーターはパケットに記述されたIPヘッダ(記述内容は以下)を読み取って、次の送信先を決定する
+  + 送信元IPアドレス
+  + 宛先IPアドレス
+- パケットの最大サイズはMTU(Maximum Transmission Unit)と呼ぶ
+  + 一般的には1500Bytes
+  + 1500Bytes以下のネットワークの場合は、送信可能なサイズにパケットを分割する(IPフラグメーション)
+  + IPフラグメーションの仕組みは以下を参照
+
+
+*【参照】*
+- [[https://www.ntt.com/bizon/glossary/j-h/packet.html][パケットとは？意味・定義 | IT用語集 | docomo business Watch | ドコモビジネス | NTTコミュニケーションズ 法人のお客さま]]
+- [[https://atmarkit.itmedia.co.jp/ait/articles/0304/04/news001_3.html][第10回　IPパケットの構造とIPフラグメンテーション：基礎から学ぶWindowsネットワーク（3/3 ページ） - ＠IT]]
+

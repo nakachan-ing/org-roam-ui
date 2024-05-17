@@ -1,0 +1,20 @@
+:PROPERTIES:
+:ID:       F78D0A07-F1F6-4197-BB3D-C6ACA2C28A09
+:END:
+#+title: EC2のセキュリティグループでインターネットからのアクセスを許可する
+#+filetags: :@EC2:@AWS:
+
+*1. EC2インスタンスに関連づけられているセキュリティグループを選択する*
+![](img/img/2024-04-11 4.43.30-instances-list.png)
+
+
+*2. インバウンドルールで以下ルールを追加する*
+- HTTP（ポート80）
+- TCP
+- 0.0.0.0/0
+![](img/img/2024-04-11 4.50.30-before-sg-inbound-list.png)
+![](img/img/2024-04-11 4.51.30-add-inbound-rule.png)
+![](img/img/2024-04-11 4.52.30-preview-sg-inbound-rules.png)
+![](img/img/2024-04-11 4.53.30-after-sg-inbound-list.png)
+
+※セキュリティグループでSSH（ポート22）とHTTP（ポート80）を許可した場合でも問題なくブラウザからアクセスは可能

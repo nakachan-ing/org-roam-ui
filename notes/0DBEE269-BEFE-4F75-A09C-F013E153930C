@@ -1,0 +1,28 @@
+:PROPERTIES:
+:ID:       0DBEE269-BEFE-4F75-A09C-F013E153930C
+:END:
+#+title: VMware-vSphere
+#+filetags: :@仮想化:
+
+
+#+BEGIN_QUOTE
+[[id:B0F5A50C-8F9B-4AA7-BA5A-3B8C743EE5A1][VMware vSphere]] （以下 vSphere ）とは VMware vSphere ESXi （以下 ESXi ） と VMware vCenter Server （以下 vCenter ）を含む仮想化ソフトウェアのスイートの総称です。この vSphere により、仮想化プラットフォームを実現することができます。(¶1§1)
+#+END_QUOTE
+
+*vSphereのコンポーネント*
+- [[id:5A1362B4-4599-4B1F-A93F-A6C873DDA173][ESXi]]
+  + ハイパーバイザー型の仮想化ソフトウェア
+- vSphere Client
+  + 仮想基盤の一元管理サービス
+  + vSphereの様々な機能を有効化(vMotion, HA, DRS)
+- Web Client
+  + 仮想環境のアクセスするブラウザベースのインターフェイス
+- 仮想マシン
+  + 実体はファイルとしてストレージに保存されている
+  + 複製が簡単
+- 共有ストレージ
+  + 仮想ディスクファイルが保存され、読み込むことで仮想マシンを動かす
+
+
+*【参照】*
+- [[https://blogs.vmware.com/vmware-japan/2014/08/vsphere_kiso01.html][新卒 SE 社員が贈る vSphere のキソ！第1回〜 vSphere を俯瞰する〜 - VMware Japan Blog]]

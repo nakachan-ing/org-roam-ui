@@ -1,0 +1,8 @@
+:PROPERTIES:
+:ID:       DA479F3A-0102-41D5-93D4-19A28C0E5069
+:END:
+#+title: AWS-Organizationsで新規追加されたアカウントに同じ環境をセットアップする方法
+#+filetags: :@Organizations:@AWS:
+
+- 各アカウントで共有するリソース(Transit Gatewayなど)はAWS RAM(AWS Access Resource Manager)で共有する
+- 環境のセットアップはCloudFormationスタックセットを作成してコード化する(Infrastructure as Code)

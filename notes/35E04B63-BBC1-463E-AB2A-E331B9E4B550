@@ -1,0 +1,16 @@
+:PROPERTIES:
+:ID:       35E04B63-BBC1-463E-AB2A-E331B9E4B550
+:END:
+#+title: メンバーアカウントのベストプラクティス
+#+filetags: :@Organizations:@AWS:
+
+
+[[id:6AF4428E-B8AA-46A4-9554-071FB71E5F43][AWS-Organizations]]におけるメンバーアカウントのベストプラクティスを以下抜粋する
+
+ (一部抜粋)
+- アカウント名にアカウントの使用状況を反映した命名構造とメールアドレスを使用する
+- 新規アカウントを作成する際には、同じようなニーズを持つアカウントが存在しないことを確認する
+- SCPを組織のルートにアタッチして、メンバーアカウントの[[id:094E9323-2B6F-4B58-8B8C-5D7C9C9D6D4E][ルートユーザで行えることを制限する]]
+
+*【参照】*
+- [[https://docs.aws.amazon.com/ja_jp/organizations/latest/userguide/best-practices_member-acct.html][メンバーアカウントのベストプラクティス - AWS Organizations]]

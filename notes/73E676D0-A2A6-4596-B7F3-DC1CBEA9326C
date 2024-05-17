@@ -1,0 +1,17 @@
+:PROPERTIES:
+:ID:       73E676D0-A2A6-4596-B7F3-DC1CBEA9326C
+:ROAM_ALIASES: AZI
+:END:
+#+title: アベイラビリティーゾーンの独立性
+#+filetags: :@AWS:
+
+
+#+BEGIN_QUOTE
+アベイラビリティーゾーンは、インフラストラクチャの隔離を超えた抽象化されたレイヤーを提供します。アベイラビリティーゾーンを必要とするサービスにより、発信者は AWS にリージョン内のインフラストラクチャを物理的にプロビジョニングする場所を指示して、この独立性から利益を得ることができます。Amazonでは、独自の高可用性ターゲットを達成するためにこのゾーンの独立性を利用したリージョナル AWS サービスを構築しました。Amazon DynamoDB、Amazon Simple Queue Service (SQS)、Amazon Simple Storage Service (S3) などのサービスは、このようなリージョナルサービスの例です。(¶1§4)
+#+END_QUOTE
+
+- アベイラビリティーゾーンはAWSリージョン内で独立して動作する論理的に分離されたセクション
+
+
+*【参照】*
+- [[https://aws.amazon.com/jp/builders-library/static-stability-using-availability-zones/][アベイラビリティーゾーンを使用した静的安定性]]

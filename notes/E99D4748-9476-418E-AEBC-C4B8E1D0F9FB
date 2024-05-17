@@ -1,0 +1,11 @@
+:PROPERTIES:
+:ID:       E99D4748-9476-418E-AEBC-C4B8E1D0F9FB
+:END:
+#+title: EC2にApacheをインストールしてブラウザに表示させる
+#+filetags: :@Apache:@EC2:@AWS:
+
+大きな手順は以下の通り
+
+1. [[id:49C693CF-1399-4BD9-AF62-9312DC058F59][EC2にApache(httpd)をインストールする]]
+2. [[id:F78D0A07-F1F6-4197-BB3D-C6ACA2C28A09][EC2のセキュリティグループでインターネットからのアクセスを許可する]]
+3. [[id:F782B832-AC74-4EC9-9A7C-A78C795DCDB3][Apache(httpd)を起動する]]   

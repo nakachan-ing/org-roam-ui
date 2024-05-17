@@ -1,0 +1,10 @@
+:PROPERTIES:
+:ID:       20E72867-5B79-4354-A6DC-0DE83DA562A0
+:END:
+#+title: クライアント/サーバ間通信のE2Eでの暗号化の実現
+#+filetags: :EC2:@ALB:@ACM:@AWS:
+
+
+- ACM(Amazon Certificate Manager)を使ってSSL証明書をALBに関連付ける
+- EC2へSSL証明書をインストールして、ALBとEC2間の通信を暗号化する
+- EC2へはサードパーティのSSL証明書を使用する(ACMの証明書はエクスポートできない)

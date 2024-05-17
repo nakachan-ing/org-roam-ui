@@ -1,0 +1,22 @@
+:PROPERTIES:
+:ID:       98FCB2C8-4299-4B09-9A73-712AF1B89C23
+:END:
+#+title: ストレージとは
+#+filetags: :@ストレージ:
+
+
+#+BEGIN_QUOTE
+ストレージ（補助記憶装置）とは、データを長期間記憶しておくことためのデバイスです。具体的には、PCに内蔵されているHDD（Hard Disk Drive）やSSD（Solid State Drive）のほか、USBメモリや外付けHDDなどが挙げられます。(¶1)
+#+END_QUOTE
+
+- データを長期間記憶しておくためのデバイス
+- メモリも同様にデータを補完する装置だが、一時的な保管場所という違いがある
+- ストレージには以下のような種類が挙げられる
+  + [[id:E85E0660-ACEA-48B5-A7F7-826AA6AF8A89][内部ストレージ]]
+  + [[id:83A6F9B3-9DA8-419A-B39D-D7458EF159E7][外部ストレージ]]
+  + [[id:C45B3D36-8C5F-48DA-8064-71C446BA8A45][NAS]]
+  + クラウドストレージ
+
+
+*【参照】*
+- [[https://www.ntt.com/bizon/glossary/j-s/storage.html][ストレージとは？意味・定義 | IT用語集 | docomo business Watch | ドコモビジネス | NTTコミュニケーションズ 法人のお客さま]]

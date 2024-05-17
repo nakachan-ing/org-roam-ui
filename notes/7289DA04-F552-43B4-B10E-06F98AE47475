@@ -1,0 +1,17 @@
+:PROPERTIES:
+:ID:       7289DA04-F552-43B4-B10E-06F98AE47475
+:ROAM_ALIASES: ProcChk.sh
+:END:
+#+title: EC2インスタンスで起動しているプロセスチェックを行うシェルを導入する
+#+filetags: :@EC2:@AWS:
+
+
+大きな手順は以下の通り
+
+1. ProcChk.shを指定のディレクトリに作成する(/opt/shell/ProcChk.sh)
+   - ProcChk.shは[[https://github.com/nakachan-ing/co-Document/blob/main/AWS/EC2/ProcChk.sh][nakachan-ing/co-Document/AWS/EC2/ProcChk.sh]]参照
+2. chmodで権限を変更する(770)
+3. ProcChk.shの実行ログの保存先を作成する
+   - rsyslogのインストール(※詳細は[[id:72ABE86C-3523-413C-AD8C-1A559D965799][rsyslogを使えるように設定する]]を参照)
+
+4. Cron設定ファイルを作成する(/var/spool/cron/root)

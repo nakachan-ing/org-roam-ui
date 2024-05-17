@@ -1,0 +1,28 @@
+:PROPERTIES:
+:ID:       443D5DF2-8AA7-463A-AAA7-3C40F1904A25
+:END:
+#+title: ストレージシステムの形態
+#+filetags: :@ストレージ:
+
+#+BEGIN_QUOTE
+ストレージシステムの形態は、DAS（Direct Attached Storage）、NAS（Network Attached Storage）、SAN（Storage Area Network）に分類できます。簡単に言えば、サーバに直接接続するシステムがDASで、ネットワークにストレージを接続するシステムがNASまたはSANです。(¶1)
+#+END_QUOTE
+
+*[[id:6F757D31-0185-41EA-AA6B-4AF9742F6F2B][DAS]]*
+- Direct Attached Storageの略
+- ネットワークを介さず、サーバに直接ストレージを接続する
+
+*[[id:C45B3D36-8C5F-48DA-8064-71C446BA8A45][NAS]]*
+- Network Attached Storageの略
+- LAN経由でストレージに接続する
+
+*[[id:C7B87318-BA90-4608-B02E-635084D58355][SAN]]*
+- Strorage Area Networkの略
+- ストレージ専用のネットワークを構成して接続する
+
+[[img/2024-04-04 4.31.07-type_of_storage.png]]
+
+
+*【参照】*
+- [[https://www.fujitsu.com/jp/products/computing/storage/lib-f/tech/beginner/san-nas-das/index.html][DAS、NAS、SANの比較 : 富士通]]
+- [[https://www.networld.co.jp/solution/learn_first/storage/p25_27.html][ストレージの接続方式（DAS/SAN/NAS）｜ストレージを最初に学ぶ人が見るサイト！【ネットワールド】]]

@@ -1,0 +1,22 @@
+:PROPERTIES:
+:ID:       654DD402-9D57-4EEA-9E84-B74785D83557
+:ROAM_ALIASES: PoP
+:END:
+#+title: Point-of-Presence
+#+filetags: :@AWS:
+
+
+#+BEGIN_QUOTE
+AWS リージョン およびアベイラビリティーゾーンに加えて、AWS は、グローバルに分散された Point of Presence (POP) ネットワークも運用しています。これらの PoP は、コンテンツ配信ネットワーク (CDN) である Amazon CloudFront、パブリックドメインネームシステム (DNS) 解決サービスである Amazon Route 53、およびエッジネットワーク最適化サービスである AWS Global Accelerator (AGA) をホストしています。(¶1)
+#+END_QUOTE
+
+
+- グローバルエッジネットワークとして、以下のサービスをホストしている
+  - Amazon CloudFront
+  - Amazon Route 53
+  - AWS Droval Accelerator(AGA)
+- 一つのPoPに障害が発生しても、他のグローバルネットワークには影響しない
+
+
+*【参照】*
+- [[https://docs.aws.amazon.com/ja_jp/whitepapers/latest/aws-fault-isolation-boundaries/points-of-presence.html][Point of Presence - AWS 障害分離境界]]

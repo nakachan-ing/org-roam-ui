@@ -1,0 +1,35 @@
+:PROPERTIES:
+:ID:       454EFA0D-2C33-46C3-AAE5-68AF7A59141B
+:END:
+#+title: Apacheのバージョンアップデート後にhttpdの起動ができない
+#+filetags: :@Apache:@error:
+
+
+*エラー内容*
+- ~systemctl start httpd00~ を実行したところ、起動できないエラーが発生
+- ステータスは以下内容の通り
+
+#+BEGIN_SRC sh
+systemctl status httpd00 > /tmp3/log
+cat /tmp3/log
+● httpd00.service - The Apache HTTP Server
+    Loaded: loaded (/usr/lib/systemd/system/httpd00.service; enabled; vendor preset: disabled)
+    Active: failed (Result: exit-code) since Tue 2024-03-05 15:44:36 JST; 7min ago
+        Docs: man:httpd.service(8)
+    Process: 985722 ExecStart=/usr/sbin/httpd00 -f /etc/httpd00/conf/httpd.conf $OPTIONS -DFOREGROUND (code=exited, status=1/FAILURE)
+        Main PID: 985722 (code=exited, status=1/FAILURE)
+    3月 05 15:44:36 cct1aw01.multiconnect.hulft.com systemd[1]: Starting The Apache HTTP Server...
+    3月 05 15:44:36 cct1aw01.multiconnect.hulft.com httpd00[985722]: httpd00: Syntax error on line 59 of /etc/httpd00/conf/httpd.conf: Syntax error on line 1 of /etc/httpd00/conf.modules.d/10-h2.conf: Cannot load modules/mod_http2.so into server: /etc/httpd00/modules/mod_http2.so: undefined symbol: ap_post_read_request 3月 05 15:44:36 cct1aw01.multiconnect.hulft.com systemd[1]: httpd00.service: Main process exited, code=exited, status=1/FAILURE 
+    3月 05 15:44:36 cct1aw01.multiconnect.hulft.com systemd[1]: httpd00.service: Failed with result 'exit-code'. 3月 05 15:44:36 cct1aw01.multiconnect.hulft.com systemd[1]: Failed to start The Apache HTTP Server.
+#+END_SRC
+
+
+*原因*
+- ~/etc/httpd00/conf/httpd.conf~ でロードされるモジュールの中で、 ~etc/httpd00/conf.modules.d/10-h2.conf~ が存在しなかったため
+- mod_http2はどこかのバージョン以降、使用されなくなった(無効化になった)ため、モジュールのロードができない(そもそも存在しない)
+- 定期的なApacheのバージョンアップ対応をしていなかったため、上記変更に気がつけなかったため
+
+
+*解決方法*
+- ~/etc/httpd00/conf.modules.d/10-h2.conf~ の中の記述を全コメントアウトして、起動したら成功した
+- 定期的なApacheのバージョンアップ対応を運用に組み込む

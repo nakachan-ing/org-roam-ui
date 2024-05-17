@@ -1,0 +1,109 @@
+:PROPERTIES:
+:ID:       7FFC9D2F-EC32-4170-BE10-B1CEEEE87EBB
+:END:
+#+title: L2スイッチの初期設定
+#+filetags: :@L2SW:
+
+
+*ホスト名の設定*
+#+BEGIN_SRC
+> enable
+# configure
+(config)# hostname <ホスト名>
+#+END_SRC
+
+
+*VLANの作成*
+#+BEGIN_SRC
+(config)# vlan XX-XX
+※XX-XXにはVLANのIDの範囲を指定する(1-4みたいに)
+#+END_SRC
+
+
+*チャネルグループの構成*
+#+BEGIN_SRC
+（グループにしたいインターフェイスを指定する）
+(config)# interface range gi1/0/24,gi2/0/24
+
+（チャネルグループを構成する）
+(config-if)# channel-group 1 mode active
+
+（チャネルグループの確認）
+(config-if)# show interfaces po1
+#+END_SRC
+
+
+*ハッシュタイプの変更*
+#+BEGIN_SRC
+（チャネルグループの選択）
+(config-if)# interface po1
+
+（ハッシュタイプの変更）
+(config-if-po1)# hashing-mode 6
+#+END_SRC
+
+
+*VLANの割り当て([[id:7B38CF83-B672-4B44-BBED-B92588741188][トランクモード]]への変更)*
+
+※詳細は[[id:E0356FCC-70FB-48CA-AB47-80CE8D140C0F][trunkモードを有効にする方法]]を参照
+
+※VLANの追加と削除については[[id:C8029AA2-BE0D-4FE6-850C-4F9D88DF0DA3][VLANを追加&削除するコマンド]]を参照
+
+#+BEGIN_SRC
+（チャネルグループをトランクモードに変更）
+(config-if-po1)# switchport mode trunk
+
+（VLANの割り当て）
+(config-if-po1)# switchport trunk allowed vlan XX-XX
+
+（VLANの確認）
+(config-if-po1)# show vlan
+#+END_SRC
+
+
+*管理用IPアドレスの設定*
+#+BEGIN_SRC
+（管理用VLANの選択）
+(config-if-po1)# interface vlan XX
+
+（IPアドレスの設定）
+(config-if-vlXX)# ip address 10.60.XXX.250 255.255.255.0
+
+（IPアドレスの確認）
+(config-if-vlXX)# show ip vlan
+#+END_SRC
+
+
+*デフォルトゲートウェイの設定*
+#+BEGIN_SRC
+(config-if-po1)# exit
+(config)# ip default-gateway 10.60.XX.1
+
+（デフォルトゲートウェイの確認）
+(config)# show ip route
+#+END_SRC
+
+
+*L2スイッチのSSH接続の有効化*
+#+BEGIN_SRC
+(config)# ip ssh server
+
+（有効化の確認）
+(config)# show ip ssh
+#+END_SRC
+
+
+*SSH用ユーザの作成*
+#+BEGIN_SRC
+(config)# username root password <password> privilege 15
+
+（ユーザの確認）
+(config)# show users accounts
+#+END_SRC
+
+
+*SSH接続の確認*
+- 管理用IPアドレスを指定
+- SSH用ユーザとパスワードを指定
+WindowsならTeratermで接続する
+

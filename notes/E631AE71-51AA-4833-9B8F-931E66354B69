@@ -1,0 +1,14 @@
+:PROPERTIES:
+:ID:       E631AE71-51AA-4833-9B8F-931E66354B69
+:ROAM_ALIASES: trunkモード accessモード
+:END:
+#+title: accessモードとtrunkモード
+#+filetags: :@L2SW:
+
+
+*accessモード*
+- ポート一つに対して、一つのVLANを割り当てるモード(1 : 1)
+
+*trunkモード*
+- ポート一つに対して、複数のVLANを割り当てるモード(1 : n)
+

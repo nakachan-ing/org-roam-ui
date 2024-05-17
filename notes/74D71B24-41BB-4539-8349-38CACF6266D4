@@ -1,0 +1,20 @@
+:PROPERTIES:
+:ID:       74D71B24-41BB-4539-8349-38CACF6266D4
+:END:
+#+title: ベアメタル型ハイパーバイザー
+#+filetags: :@サーバ:@仮想化:
+
+
+#+BEGIN_QUOTE
+OSに拠らずハードウェア上で直接動作し、実行されるOSがすべて仮想マシン上で動作するような制御プログラムのことを指す(¶2§1)
+#+END_QUOTE
+
+ベアメタル型ハイパーバイザーに分類される代表的な製品は、以下のとおり
+
+- VMware社：VMware ESX
+- Microsoft社：Hyper-V
+- XenSource社：Xen
+
+*【参照】*
+- [[https://e-words.jp/w/%E3%83%8F%E3%82%A4%E3%83%91%E3%83%BC%E3%83%90%E3%82%A4%E3%82%B6%E3%83%BC.html#Section_%E3%83%99%E3%82%A2%E3%83%A1%E3%82%BF%E3%83%AB%E5%9E%8B%E3%83%8F%E3%82%A4%E3%83%91%E3%83%BC%E3%83%90%E3%82%A4%E3%82%B6%E3%83%BC][ハイパーバイザー（VMM / 仮想マシンモニタ）とは - 意味をわかりやすく - IT用語辞典 e-Words]]
+- [[https://blogs.manageengine.jp/itom_what_is_hypervisor/][ハイパーバイザーとは？種類とメリット、デメリットを解説 - ManageEngine ブログ ManageEngine ブログ]]

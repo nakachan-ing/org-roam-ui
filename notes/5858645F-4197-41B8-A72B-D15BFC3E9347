@@ -1,0 +1,9 @@
+:PROPERTIES:
+:ID:       5858645F-4197-41B8-A72B-D15BFC3E9347
+:END:
+#+title: SSHアクセスに関するセキュリティを強化して操作ログ監査する方法
+
+
+- IAMロールに"Amazon SSMManagedInstanceCore"マネージドポリシーをアタッチする
+- セキュリティグループに存在する"ポート22 / 受信TCPトラフィック(SSH)"のルールを削除する
+- クライアントPCに"AWS Systems Manager Session Managerプラグイン"をインストールして、"start-session API"を使用してアクセスする

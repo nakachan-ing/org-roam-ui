@@ -1,0 +1,11 @@
+:PROPERTIES:
+:ID:       F7D466F0-75AA-4571-8E2E-4ED2259A0A04
+:END:
+#+title: MACアドレスに関連付いたライセンスファイルが必要なアプリケーションの可用性の実現
+
+
+- ライセンスファイルはリソースと切り離して保存する
+  + MACアドレスはENI(Elastic Network Interface)ごとに決まる
+  + ENIをあらかじめ複数プールしておき、ENI分のライセンスファイルを取得しておく
+  + 取得したライセンスファイルはS3に保存する
+- 固定値のパラメータもリソースと切り離し、"AWS Systems Manager Parameter Store"に保存する

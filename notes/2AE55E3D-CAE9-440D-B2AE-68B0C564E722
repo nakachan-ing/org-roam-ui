@@ -1,0 +1,62 @@
+:PROPERTIES:
+:ID:       2AE55E3D-CAE9-440D-B2AE-68B0C564E722
+:ROAM_ALIASES: "node n"
+:END:
+#+title: Nodeのバージョン変更のツール"n"の使い方
+#+filetags: :@Node:
+
+
+*nのインストール*
+- nodeをまだインストールしていない場合
+#+BEGIN_SRC sh
+brew install n
+n -V
+#+END_SRC
+
+- nodeがインストール済みの場合
+#+BEGIN_SRC sh
+npm install -g n
+#+END_SRC
+  
+
+*nの利用準備*
+
+- n はデフォルトでは ~/usr/local/n~ 以下を利用する
+
+#+BEGIN_SRC sh
+ls /usr/local/n
+versions
+ls /usr/local/n/versions
+14.18.0 18.18.0 20.7.0
+#+END_SRC
+
+- nodeのインストール先を変更したい場合は、環境変数 ~N_PREFIX~ を定義する
+
+#+BEGIN_SRC sh
+export N_PREFIX=$HOME/.n
+export PATH=$N_PREFIX/bin:$PATH
+#+END_SRC
+
+
+*nのインストール*
+#+BEGIN_SRC sh
+n lts | latest | ver指定(12.13.0 etc)
+#+END_SRC
+
+
+*取得済みのnodeの選択*
+#+BEGIN_SRC sh
+sudo n
+
+    node/12.13.0
+  ο node/13.1.0
+
+Use up/down arrow keys to select a version, return key to install, q to quit
+#+END_SRC
+
+
+*バージョン確認*
+#+BEGIN_SRC sh
+node -v
+v13.1.0
+#+END_SRC

@@ -1,0 +1,22 @@
+:PROPERTIES:
+:ID:       75AB69A8-5EFD-4523-90A7-B3E144FC8CB6
+:END:
+#+title: 複数のAWSアカウントをまたいだアクセス許可の管理
+#+filetags: :@Organizations:@IAM:@AWS:
+
+
+#+BEGIN_QUOTE
+AWS で 1 つのアカウントを管理する場合は、ポリシーを使用してそのアカウント内でアクセス許可を定義します。複数のアカウントをまたいでアクセス許可を管理する場合、ユーザーのアクセス許可の管理はより難しくなります。IAM ロール、リソースベースのポリシー、アクセスコントロールリスト (ACL) はクロスアカウントのアクセス許可で使用できます。ただし、複数のアカウントを所有している場合は、このようなアクセス許可を管理しやすいように AWS Organizations サービスを使用することをお勧めします。(¶2)
+#+END_QUOTE
+
+
+- 複数のAWSアカウントを管理する場合は、[[id:FCA590BF-00D3-45F4-903B-9AFE6088067B][IAMを使用したクロスアカウントアクセス]]を行う
+  + IAMロール
+  + リソースベースのポリシー
+  + アクセスコントロールリスト(ACL)
+- 管理専用のアカウントで一元管理し、各アカウントは[[id:908C9228-AF5D-4732-BF7A-F5EB7F7E2547][スイッチロール]]で管理アカウントのロールを利用することができる
+- ただし、よりアクセス許可を管理しやすいように、[[id:6AF4428E-B8AA-46A4-9554-071FB71E5F43][AWS-Organizations]]を利用することが推奨される
+
+*【参照】*
+[[https://docs.aws.amazon.com/ja_jp/IAM/latest/UserGuide/introduction_access-management.html][アクセス管理の概要: アクセス許可とポリシー - AWS Identity and Access Management]]
+

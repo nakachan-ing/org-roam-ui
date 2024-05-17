@@ -1,0 +1,21 @@
+:PROPERTIES:
+:ID:       AE36E716-E681-40D2-A351-AE33C6297480
+:END:
+#+title: MACベースVLAN
+#+filetags: :@VLAN:@ネットワーク:
+
+
+#+BEGIN_QUOTE
+「MACベースVLAN」は、データを送信するPCのMACアドレスに応じて、VLANのグループを振り分ける方法です。(¶5§1)
+#+END_QUOTE
+
+
+*メリット*
+- PCの設置場所が変わっても、VLANグループの設定はそのままで済む
+
+*デメリット*
+- PCの入れ替えをした場合はMACアドレスが変わるため、再設定が必要になる
+
+
+*【参照】*
+[[https://academy.gmocloud.com/other/20221216/16175][【エンジニア入門】VLANでできることと仕組み、導入メリット]]

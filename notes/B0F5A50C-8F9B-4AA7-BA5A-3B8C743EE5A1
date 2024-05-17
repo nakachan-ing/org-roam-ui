@@ -1,0 +1,46 @@
+:PROPERTIES:
+:ID:       B0F5A50C-8F9B-4AA7-BA5A-3B8C743EE5A1
+:ROAM_ALIASES: "VMware vSphere"
+:END:
+#+title: VMwareの特徴
+#+filetags: :@仮想化:
+
+VMware製品である「VMware vSphere®」の特長
+
+- VMware HA(High Availability)
+  + 物理サーバに障害が発生した場合、自動的に別の物理サーバ上で仮想マシンを起動させる(別の物理サーバを準備している時に限る)
+  + ダウンタイムをゼロにしたい場合は、VMware FT(Fault Tolerance)を使用する
+    - HAで構成されたホスト上の仮想マシンで有効
+
+![](img/2024-03-26_04-13-59_vmware_top_ha.gif)
+
+![](img/2024-04-17_04-30-04_HA-FT-16-2.jpg)
+
+
+- VMware vMotion
+  + 稼働中の仮想マシンを停止させることなく、別の物理サーバへ移動できる
+  + ダウンタイムなしのメンテナンスが可能
+  + 負荷分散のために使用可能
+  + *管理的に移行が必要なときに利用する(障害発生時に自動的に移動はしない)*
+
+![](img/2024-03-26_04-17-16_vmware_top_vmotion.gif)
+
+
+- VMware DRS(Distrubuted Resource Scheduler)
+  + 仮想マシンのCPU、メモリ使用率を監視し、特定の物理サーバに負荷が集中した時に自動的にリソースが空いている別のサーバに移動させ全体最適化する
+
+![](img/2024-03-26_04-15-43_vmware_top_drs.gif)
+
+
+
+- VMware Storage vMotion
+  + 稼働中の仮想マシンを停止させることなく、ディスクを移行することができる(vMotionのストレージ版)
+
+![](img/2024-03-26_04-16-56_vmware_top_storage_vmotion.gif)
+
+
+
+
+*【参照】*
+- [[https://pfs.nifcloud.com/vmware/about_vmware.htm][VMwareとは | ニフクラ]]
+- [[https://blogs.vmware.com/vmware-japan/2014/02/ha-ft.html][押さえておきたいvSphereの基本-可用性編　vSphere HA/FT - VMware Japan Blog]]

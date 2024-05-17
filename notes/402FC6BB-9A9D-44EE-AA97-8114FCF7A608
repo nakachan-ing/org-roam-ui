@@ -1,0 +1,9 @@
+:PROPERTIES:
+:ID:       402FC6BB-9A9D-44EE-AA97-8114FCF7A608
+:END:
+#+title: AWSの使用コストをアプリケーションやチームごとに特定できるようにする方法
+
+
+- "Cost Explore"を有効化する
+- ユーザ定義型のコスト配分タグを有効にして、タグをカスタマイズする
+- "Billing and Cost Management"にアクセスできるようにIAMロールを許可する

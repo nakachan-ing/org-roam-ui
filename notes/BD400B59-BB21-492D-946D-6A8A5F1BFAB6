@@ -1,0 +1,53 @@
+:PROPERTIES:
+:ID:       BD400B59-BB21-492D-946D-6A8A5F1BFAB6
+:END:
+#+title: リソースベースのクロスアカウント
+#+filetags: :@IAM:@AWS:
+
+
+- 他のアカウントに属するリソースとの共有(情報のコピーetc)をするタスクにおいて便利
+- プリンシパルには
+  + アカウント
+  + IAMユーザ
+  + フェデレーディットユーザ
+  + IAMロール
+  + 引き受けたセッションロール
+  + AWSサービス
+- リソース側には特定のIAM ID(ユーザ、グループ、ロール)にアクセス許可を付与する
+- プリンシパルは、ロールのアクセス許可を受け取るためにプリンシパル自体のアクセス許可を放棄する必要はない(権限が追加されていく)
+
+
+*§ プリンシパル側の設定*
+#+BEGIN_SRC js
+  {
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+	"Effect": "Allow",
+	"Action": ["s3:Get*", "s3:List*"],
+	"Resource": "arn:aws:s3:::BucketA/*"
+      }
+    ]
+  }
+#+END_SRC
+
+
+*§ リソース側の設定*
+#+BEGIN_SRC js
+  {
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+	"Sid": "PrincipalAccess",
+	"Effect": "Allow",
+	"Principal": { "AWS": "arn:aws:iam::AccountB:root" },
+	"Action": "s3:*",
+	"Resource": "arn:aws:s3:::BucketA/*"
+      }
+    ]
+  }
+#+END_SRC
+
+
+*【参照】*
+- [[https://docs.aws.amazon.com/ja_jp/IAM/latest/UserGuide/access_policies-cross-account-resource-access.html][IAM でのクロスアカウントのリソースへのアクセス - AWS Identity and Access Management]]

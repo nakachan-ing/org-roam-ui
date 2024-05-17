@@ -1,0 +1,32 @@
+:PROPERTIES:
+:ID:       C7B87318-BA90-4608-B02E-635084D58355
+:ROAM_ALIASES: "Storage Area Network"
+:END:
+#+title: SAN
+#+filetags: :@ストレージ:
+
+
+*特徴*
+- ストレージ専用のネットワークを構成して接続する
+
+*メリット*
+- アクセスが高速
+- 冗長構成が可能で可用性が向上する
+- ストレージの集中管理が可能(一つのストレージを複数の端末で共有可能になる)
+
+
+*デメリット*
+- 高度なスキルと知識が必要
+- 導入コストがかかる
+
+*主なプロトコル*
+- [[id:CEE61F45-0B2D-4CA3-B857-003D33DFCCA0][iSCSI]]
+- FCoP
+
+
+[[img/2024-04-04_04-13-53_fig01_3_tcm102-1970590_tcm102-2750236-32.gif]]
+
+
+
+*【参照】*
+- [[https://www.fujitsu.com/jp/products/computing/storage/lib-f/tech/beginner/san-nas-das/index.html][DAS、NAS、SANの比較 : 富士通]]

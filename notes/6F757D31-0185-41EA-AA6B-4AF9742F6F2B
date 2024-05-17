@@ -1,0 +1,31 @@
+:PROPERTIES:
+:ID:       6F757D31-0185-41EA-AA6B-4AF9742F6F2B
+:ROAM_ALIASES: "Direct Attached Storage"
+:END:
+#+title: DAS
+#+filetags: :@ストレージ:
+
+
+ネットワークを介さず、サーバに直接ストレージを接続するシステム([[id:E85E0660-ACEA-48B5-A7F7-826AA6AF8A89][内部ストレージ]]ともいう)
+
+*メリット*
+- スキルや知識がなくても簡単に導入できる
+- 導入コストが低い
+
+
+*デメリット*
+- アクセス速度が遅い
+- サーバ障害が発生するとストレージにアクセスできない
+- 増設時にはサーバも増設する必要があるためその時はコストや管理の負荷がかかる(サーバに対して1台のストレージのため)
+
+*主なプロトコル*
+- SATA
+- SCSI
+
+[[img/2024-04-04_04-00-25_fig01_1_tcm102-1970588_tcm102-2750236-32.gif]]
+
+
+
+
+*【参照】*
+- [[https://www.fujitsu.com/jp/products/computing/storage/lib-f/tech/beginner/san-nas-das/index.html][DAS、NAS、SANの比較 : 富士通]]

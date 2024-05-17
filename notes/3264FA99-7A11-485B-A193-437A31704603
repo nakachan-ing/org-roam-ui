@@ -1,0 +1,38 @@
+:PROPERTIES:
+:ID:       3264FA99-7A11-485B-A193-437A31704603
+:END:
+#+title: ロールベースのクロスアカウント
+#+filetags: :@IAM:@AWS:
+
+- 信頼ポリシーを含むIAMロールである必要がある
+- リソース側(アクセスされる側)の設定とプリンシパル側(アクセスする側)の設定が必要
+- プリンシパルは
+  + アクセスするAWSアカウント内のロールのARNを指定して、AWS STSサービスのAssumeRole APIを呼び出す
+  + AWS STSはプリンシパルに一時的なAWS認証情報を返す
+- プリンシパルは、元々のアクセス権限を放棄して、使用するポリシーに設定された権限を引き継ぐ(権限が上書きされる)
+
+
+*§ リソース側の設定*
+#+BEGIN_SRC js
+  {
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+	"Effect": "Allow",
+	"Action": "s3:*",
+	"Resource": ["arn:aws:s3:::bucket-name"]
+      },
+      {
+	"Effect": "Allow",
+	"Principal": {
+	  "AWS": "arn:aws:iam::APN-account-ID:role/APN-user-name"
+	},
+	"Action": "sts:AssumeRole"
+      }
+    ]
+  }
+#+END_SRC
+
+
+*【参照】*
+- [[https://docs.aws.amazon.com/ja_jp/IAM/latest/UserGuide/access_policies-cross-account-resource-access.html][IAM でのクロスアカウントのリソースへのアクセス - AWS Identity and Access Management]]

@@ -1,0 +1,17 @@
+:PROPERTIES:
+:ID:       3D057E98-F1EC-4C16-9C78-91DA10478F93
+:ROAM_ALIASES: ミラーリング
+:END:
+#+title: RAID-1
+
+
+*RAID 1（ミラーリング）*
+- 複数のハードディスクに同じデータを書き込む
+- 同じ内容のデータを複製するため一台故障しても復旧できる
+- 同じデータを二重で保管するため、保存できる容量は少ない
+
+![](img/img/2024-04-09_04-01-26_raid1-structure.png)
+
+
+*【参照】*
+- [[https://office110.jp/security/knowledge/technology/redundant-arrays-of-inexpensive-disks][RAIDとは？種類別の特徴を【図解】や【比較表】でわかりやすく解説【お役立ち情報】 | OFFICE110]]

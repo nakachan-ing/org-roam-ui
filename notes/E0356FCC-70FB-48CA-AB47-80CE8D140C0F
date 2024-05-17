@@ -1,0 +1,30 @@
+:PROPERTIES:
+:ID:       E0356FCC-70FB-48CA-AB47-80CE8D140C0F
+:END:
+#+title: trunkモードを有効にする方法
+#+filetags: :@L2SW:
+
+
+チャネルグループを作成しても、作成していなくてもポートに複数のVLANを割り当てる場合は、以下コマンドを実行する
+
+*チャネルグループを作成する場合*
+#+BEGIN_SRC
+interface range gi1/0/14-15,gi1/0/17
+channel-group 1 mode active
+
+（チャネルグループを指定する）
+interface po1
+switchport mode trunk
+#+END_SRC
+
+
+*チャネルグループを作成しない場合*
+#+BEGIN_SRC
+（直接ポートをしていする）
+interface range gi1/0/14-15,gi1/0/17
+switchport mode trunk
+#+END_SRC
+
+
+
+

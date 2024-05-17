@@ -1,0 +1,32 @@
+:PROPERTIES:
+:ID:       C881B5A2-7275-4ADC-9378-77F6518ED1CA
+:END:
+#+title: L2スイッチのconfigファイルの扱い
+#+filetags: :@L2SW:
+
+
+*configファイルの種類*
+- startup-config
+  + 起動時に読み込まれる
+- running-config
+  + 起動後にstartup-configに上書きされる
+  + 稼働中に使用される
+
+
+![](img/img/2024-04-03 13.24.09-L2SW_configs.png)
+
+running-configの設定内容をstartup-configに反映させる場合は「特権モード」で ~write~ コマンドを実行する
+#+BEGIN_SRC
+> enable
+# write
+#+END_SRC
+
+[[id:7FFC9D2F-EC32-4170-BE10-B1CEEEE87EBB][L2スイッチの初期設定]]したい場合は「特権モード」で ~delete startup-config~ を実行する
+
+詳細は[[id:47EE96E3-DB1B-4B6B-A3CF-1EF727E0F98F][startup-configを削除するときのコマンド]]を参照
+
+#+BEGIN_SRC
+> enable
+# delete startup-config
+# reload
+#+END_SRC

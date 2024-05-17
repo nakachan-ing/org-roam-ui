@@ -1,0 +1,18 @@
+:PROPERTIES:
+:ID:       A4DE63DB-BBB0-40E9-88CC-8ABBE4D12267
+:END:
+#+title: IAMの概要
+#+filetags: :@IAM:@AWS:
+
+
+#+BEGIN_QUOTE
+AWS Identity and Access Management (IAM) は、リソースへのアクセスを安全に管理するためのウェブサービスです。IAM を使用すると、ユーザーがアクセスできる AWS のリソースを制御するアクセス許可を集中管理できます。IAM を使用して、誰を認証 (サインイン) し、誰にリソースの使用を認可する (アクセス許可を付与する) かを制御します。(¶1§1)
+#+END_QUOTE
+
+- IAM(Identity and Access Management)はAWSを利用するにあたり、すべての土台となるサービスであり、以下の2点を制御する
+  + アクセス(サインイン)できるのは誰か？(認証)
+  + どのリソースにアクセスできるのか？([[id:8D52363A-9336-4CA6-B12F-F918D6334DB7][認可]])
+
+*【参照】*
+- [[https://docs.aws.amazon.com/ja_jp/IAM/latest/UserGuide/introduction.html][IAM とは - AWS Identity and Access Management]]
+

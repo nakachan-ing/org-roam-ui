@@ -1,0 +1,9 @@
+:PROPERTIES:
+:ID:       C4DBD05A-3AAD-4CC2-BFA2-4E19C97075E0
+:END:
+#+title: SCPを作成しても記載外のAWSサービスへアクセスできてしまうことへの解決方法
+#+filetags: :@AWS:@Organizations:
+
+
+- OUにはデフォルトで"FullAWSAccess SPC"がアタッチされているため、作成したSCPに記載のないサービスへアクセスできてしまう
+- "FullAWSAccess SCP"を削除することで解決できる

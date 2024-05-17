@@ -1,0 +1,42 @@
+:PROPERTIES:
+:ID:       49C693CF-1399-4BD9-AF62-9312DC058F59
+:END:
+#+title: EC2にApache(httpd)をインストールする
+
+
+*1. インストール可能なhttpdを確認する*
+#+BEGIN_SRC sh
+sudo su -
+rpm -qa | grep httpd
+yum --showduplicate list httpd  
+#+END_SRC
+
+![](img/img/2024-04-08 5.34.51-httpd-confirm.png)
+
+*2. 最新のhttpdをインストールする*
+#+BEGIN_SRC sh
+yum install 2.4.58-1.amzn2023
+#+END_SRC
+
+![](img/img/2024-04-08 5.35.10-httpd-install_1.png)
+![](img/img/2024-04-08 5.35.45-httpd-install_2.png)
+![](img/img/2024-04-08 5.36.08-httpd-install_3.png)
+
+
+*3. インストールしたhttpdのバージョンを確認する*
+#+BEGIN_SRC sh
+rpm -qa | grep httpd
+#+END_SRC
+
+![](img/img/2024-04-08 5.37.34-httpd-installed-confirm_1.png)
+
+*4. インストールされたhttpdの設定ファイルを確認する*
+#+BEGIN_SRC sh
+ls -l /etc |grep httpd
+ls -l /etc/httpd
+ls -l /etc/httpd/conf
+ls -l /etc/httpd/conf.d
+ls -l /etc/httpd/conf.modules.d
+#+END_SRC
+
+![](img/img/2024-04-08 5.41.06-httpd-installed-confirm_2.png)

@@ -1,0 +1,44 @@
+:PROPERTIES:
+:ID:       A2A50121-422F-4005-99BD-96E280B38DBA
+:END:
+#+title: RHELで最新バージョンのApacheがダウンロードできない
+#+filetags: :@Apache:RHEL:@error:
+
+*エラー内容*
+- 以下内容のとおり、最新のパッケージをダウンロードできなかった
+
+
+#+BEGIN_SRC sh
+yum install --downloadonly --downloaddir=/tmp2 httpd
+Updating Subscription Management repositories.
+Unable to read consumer identity
+
+This system is not registered to Red Hat Subscription Management. You can use subscription-manager to register.
+
+メタデータの期限切れの最終確認: 2:30:40 時間前の 2024年03月04日 08時57分31秒 に実施しました。
+パッケージ httpd-2.4.37-43.module+el8.5.0+13064+c4b14997.x86_64 は既にインストールされています。
+依存関係が解決しました。
+行うべきことはありません。
+完了しました!
+#+END_SRC
+
+
+*原因*
+- ~/etc/yum/vars/releasever~ に記載のRHELのバージョンが固定されていたため
+
+#+BEGIN_SRC sh
+cat /etc/yum/vars/releasever
+8.4
+#+END_SRC
+
+
+*解決方法*
+- ~/etc/yum/vars/releasever~ を修正してコマンドを再度実行したらダウンロードできた
+
+#+BEGIN_SRC sh
+8.9
+#+END_SRC
+
+#+BEGIN_SRC sh
+yum install --downloadonly --downloaddir=/tmp2 httpd
+#+END_SRC

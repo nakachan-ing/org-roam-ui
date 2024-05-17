@@ -1,0 +1,19 @@
+:PROPERTIES:
+:ID:       BE45FFD7-4455-4567-9032-ECC37CC72E8C
+:END:
+#+title: マルチアカウント管理のベストプラクティス
+#+filetags: :@Organizations:@AWS:
+
+
+[[id:6AF4428E-B8AA-46A4-9554-071FB71E5F43][AWS-Organizations]]におけるマルチアカウント管理のベストプラクティスを以下抜粋する
+
+(一部抜粋)
+- ポリシー設定を一元的に適用するために、アカウントを一つの組織内で管理する
+- ルートユーザの認証情報に対してMFAを有効にする
+- ルートユーザの認証情報へのアクセスをモニタリングする
+- OUは報告体制ではなく、ビジネス目的(dev、prodなど)に基づいてグループ化する(ワークロード指向のOU)
+- 請求ルーツを使用してコストを追跡し、リソースの使用状況を最適化する:
+
+
+*【参照】*
+- [[https://docs.aws.amazon.com/ja_jp/organizations/latest/userguide/orgs_best-practices.html][マルチアカウント管理のベストプラクティス - AWS Organizations]]

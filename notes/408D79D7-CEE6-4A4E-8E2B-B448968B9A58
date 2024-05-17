@@ -1,0 +1,9 @@
+:PROPERTIES:
+:ID:       408D79D7-CEE6-4A4E-8E2B-B448968B9A58
+:END:
+#+title: EC2上のモノリシックRESTベースAPIの運用上のオーバーヘッドを小さくする
+#+filetags: :@API-Gateway:@Lambda:
+
+
+- API GatewayとLambdaの組み合わせによるサーバレスアーキテクチャが王道
+- 再構築が必要だが、マネージドサービスのため運用負荷が少なくなる

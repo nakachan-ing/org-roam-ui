@@ -1,0 +1,32 @@
+:PROPERTIES:
+:ID:       F924EF3F-ED7E-430C-AFFF-16A54C130703
+:ROAM_ALIASES: 準仮想化
+:END:
+#+title: ホスト(仮想OS)方式
+#+filetags: :@サーバ:@仮想化:
+
+
+#+BEGIN_QUOTE
+ホスト型はハードウェア（サーバ）の中にOS上に土台となる仮想化ソフトウェアをインストールし、仮想化ソフトウェアで仮想マシンを稼働させる方法です。すでに動作しているコンピュータの中に仮想マシンが作れるためホストOSと仮想化ソフトウェアを動作させるのでハードウェアにかかるリソースは余計に消費をしてしまいます。従って、本番環境には適しているとは言えないタイプのものですが、仮想化環境の構築がしやすい点が特徴で検証環境にはよく使われる手法です。(¶2§1)
+#+END_QUOTE
+
+- ホストOSの上に仮想化ソフトをインストールして、その中で仮想OS(ゲストOS)を動かす
+- 代表的なものは
+  + 「Oracle VM Virtualbox」
+  + VMware社：VMware Server
+  + Microsoft社：Virtual PC
+  + Parallels社：Parallels Desktop
+
+*メリット*
+- 運用中のサーバに導入しやすい
+
+*デメリット*
+- ホストOSとゲストOSの両方でリソース消費される
+
+
+![](img/2024-03-27_03-41-00_img_host.png)
+
+
+*【参照】*
+- [[https://it-trend.jp/server-virtualization/article/technology_trend][サーバ仮想化方式の3つの方式とは？メリットなどを紹介｜ITトレンド]]
+- [[https://www.itmanage.co.jp/column/virtualization-server-integration/][仮想化技術について解説｜ホスト・ハイパーバイザー・コンテナの違いとは？ | ITコラム｜アイティーエム株式会社]]

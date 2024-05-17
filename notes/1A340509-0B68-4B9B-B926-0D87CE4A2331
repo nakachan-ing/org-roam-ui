@@ -1,0 +1,33 @@
+:PROPERTIES:
+:ID:       1A340509-0B68-4B9B-B926-0D87CE4A2331
+:END:
+#+title: RAID
+
+
+#+BEGIN_QUOTE
+Raid（Redundant Array of Inexpensive Disks）とは、複数のハードディスクを1つのハードディスクのように表示する技術です。
+
+現代では、1テラバイト以上の大量のデータをハードディスクに保管するのが一般的になっています。(¶1)
+#+END_QUOTE
+
+*RAIDとは*
+- Redundant Array of Inexpensive Disks
+- 複数のハードディスクを一つのハードディスクのように認識させる技術
+
+
+*メリット*
+- 記録できるデータの容量が増える
+- データの処理速度が上がる
+- データの損失リスクを低下できる
+
+*RAIDの種類によって安全性や使用できるデータの容量が変わる*
+
+- [[id:84DAA4CD-F1E2-43FC-8B29-CFB922B783F2][RAID-0]]
+- [[id:3D057E98-F1EC-4C16-9C78-91DA10478F93][RAID-1]]
+- RAID 10
+- RAID 5
+- RAID 6
+
+
+*【参照】*
+- [[https://office110.jp/security/knowledge/technology/redundant-arrays-of-inexpensive-disks][RAIDとは？種類別の特徴を【図解】や【比較表】でわかりやすく解説【お役立ち情報】 | OFFICE110]]

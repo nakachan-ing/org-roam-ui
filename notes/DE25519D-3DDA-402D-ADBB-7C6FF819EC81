@@ -1,0 +1,40 @@
+:PROPERTIES:
+:ID:       DE25519D-3DDA-402D-ADBB-7C6FF819EC81
+:END:
+#+title: ダイナミックルーティング
+#+filetags: :@ネットワーク:
+
+
+#+BEGIN_QUOTE
+ダイナミックルートとは、ルータで設定されたルーティングプロトコルで動的に追加されるルートのこと。(¶1)
+#+END_QUOTE
+
+- ルーティングプロトコルによって動的に追加される
+- 宛先ルートが動的に更新される
+- ルーティングプロトコルでCPUとメモリが消費される
+- 複雑なネットワークの場合は、深い知識が求められる
+- ダイナミックルーティングプロトコルの種類は以下の通り
+  + IGP
+    - RIP
+    - OSPF
+    - EIGRP
+  + EGP
+    - BGP
+
+
+*〜図で表すとこんな感じになる(RIPv2を使用)〜*
+
+この状態だと、端末Aから端末Bへの通信はできない(R1に端末Bへのルートが存在しないため)
+#+DOWNLOADED: https://www.infraexpert.com/studygif/routing5.gif @ 2024-03-31 04:54:09
+[[img/2024-03-31_04-54-09_routing5.gif]]
+
+
+RIPv2を各ルーターで有効化して、隣接しているルーターに自身のルーティング情報を通知することで動的にルーティングが追加される
+#+DOWNLOADED: https://www.infraexpert.com/studygif/routing21.gif @ 2024-03-31 04:54:39
+[[img/2024-03-31_04-54-39_routing21.gif]]
+
+
+*【参照】*
+- [[https://www.infraexpert.com/study/routing5.html][ダイナミックルーティングとは - 概要]]
+- [[https://milestone-of-se.nesuke.com/nw-basic/routing/dynamic-routing/][【ダイナミック・ルーティング】RIPとOSPFとBGPの違いや使い分け、設計パターン〜  |  SEの道標]]
+- [[https://www.gate02.ne.jp/media/it/column_105/][ダイナミックルーティングとは？代表的なプロトコルについても解説 | 情シスマン]]
